@@ -1,0 +1,25 @@
+def max_of_subarrays(arr,n,k):
+    '''
+    you can use collections module here.
+    :param a: given array
+    :param n: size of array
+    :param k: value of k
+    :return: A list of required values 
+    '''
+    #code here
+    #from collections import deque
+    res=[]
+    st=[]
+    for i in range(k):
+        while st and arr[i]>=arr[st[-1]]:
+            st.pop()
+        st.append(i)
+    for i in range(k,n):
+        res.append(arr[st[0]])
+        while st and st[0]<=i-k:
+            st.pop(0)
+        while st and arr[i]>=arr[st[-1]]:
+            st.pop()
+        st.append(i)
+    res.append(arr[st[0]])
+    return re

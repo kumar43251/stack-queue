@@ -1,0 +1,32 @@
+def _push(a,n):
+    '''
+    :param a: given array
+    :param n: given size of array
+    :return: stack
+    '''
+    # code her
+    st=[]
+    for i in a:
+        st.append(i)
+    return st
+    
+def _getMinAtPop(st):
+    '''
+    :param stack: our stack
+    :return: none, print the elements in order of pop one by one, new line is not required
+    '''
+    # code here
+    res=[]
+    while len(st):
+        res.append(st.pop())
+    st.append(res.pop())
+    while len(res):
+        if st[-1]<res[-1]:
+            st.append(st[-1])
+            res.pop()
+        else:
+            st.append(res.pop())
+    while len(st):
+        print(st.pop(),end=" ")
+    print()
+            
